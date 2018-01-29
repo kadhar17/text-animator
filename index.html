@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="myapp">
+<title>{{title}}</title>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="css/style.css"/>
+	<script src="js/angular.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/scroll.js"></script>
+
+	<script type="text/javascript" async
+	src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+</head>
+<body>
+	<div class="navbart">
+		<h2 class="navtit"></span>id: {{appId}} </h2>
+	</div>
+
+	<div id="textpart" class="text-part container-fluid" ng-controller="mycontroller">
+		<!-- {{mydata}} -->
+<div ng-repeat="(key, val) in mydata track by $index">
+  <div ng-attr-id="{{'listid'+($index)}}" ng-if="listid>=[$index]" >
+    {{key}}: {{val}}
+      
+  </div>
+    <br/>
+</div>
+		
+	</div>
+</body>
+</html>
