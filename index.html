@@ -9,28 +9,54 @@
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/scroll.js"></script>
-
-	<script type="text/javascript" async
-	src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
+	<script type="text/javascript" src="js/scroll.js"></script>
 
 </head>
 <body>
+	<div id="test" class="well" style="display:block">
 	<div class="navbart">
-		<h2 class="navtit"></span>id: {{appId}} </h2>
+		<h2 class="navtit">id: {{appId}} </h2>
+	</div>
+	
+	<div id="textpart" class="text-part " ng-controller="mycontroller">
+
+		<div ng-repeat="(key,value) in mydata">
+
+			<div ng-id="mydata{{$index+1}}" ng-if="listid>=$index">
+
+				<div ng-if="key==1">
+					<h3 class="md-title">Question:</h3>
+
+					<div ng-class="hm-question" ng-repeat="ques in mydata[key]">
+						<div ng-if="ques.type=='image'">
+							<img class="img-responsive" src="{{ques.content}}"/>
+						</div>
+						<div ng-if="ques.type=='text'">
+							{{ques.content}}
+						</div>
+					</div>
+
+				</div>
+
+				<div ng-if="key>1">
+
+					<h3 ng-if="key==2" class="md-title">Solution:</h3>
+
+					<div ng-repeat="step in mydata[key]">
+						<div ng-id="mydata{{$index+1}}"> 
+							<div ng-repeat="eachstep in step">
+								{{eachstep}}<br/><br/>
+							</div><br/>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
 	</div>
 
-	<div id="textpart" class="text-part container-fluid" ng-controller="mycontroller">
-		<!-- {{mydata}} -->
-<div ng-repeat="(key, val) in mydata track by $index">
-  <div ng-attr-id="{{'listid'+($index)}}" ng-if="listid>=[$index]" >
-    {{key}}: {{val}}
-      
-  </div>
-    <br/>
+
 </div>
-		
-	</div>
 </body>
 </html>

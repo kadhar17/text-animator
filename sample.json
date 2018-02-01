@@ -1,0 +1,20 @@
+{
+	"steps":{
+		"0":{
+			"type":"text",
+			"content":"The diagram shows a solid metal cylinder of diameter 14 cm and height 25 cm. A cuboid of metal with a square end of 6 cm wide and with 25 cm height is hollowed out (i.e. a hole in the shape of a square is formed) as shown. (Take π=22/7)"
+		},
+		"1":{
+			"type":"image",
+			"content":"./images/question1_img.png"
+		},
+		"2":{
+			"type":"text",
+			"content":"(a) Calculate the volume of the cylinder.\n\t\t\t"
+		},
+		"3":{
+			"type":"text",
+			"content":"(b) Calculate the volume of remaining piece of metal after removing the cuboid"
+		}
+	}
+}

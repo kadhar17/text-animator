@@ -1,0 +1,60 @@
+{
+	"appId": 6789,
+	"responseType": "fib",
+	"questionText": "Evaluate #exA",
+	"solutionText": "#exA = #rhsA = #ans",
+	"choices": [
+		"#ans"
+	],
+	"solutionOptions": [
+		"#exA",
+		"#rhsA",
+		"#ans"
+	],
+	"units": "",
+	"labels": "",
+	"hasLabel": false,
+	"hasUnits": false,
+	"questionAlgo": "<session lang=\"en\" version=\"2.0\"><library closed=\"false\"><mtext style=\"color:#ffc800\">library</mtext><group><command><input><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><apply><csymbol definitionURL=\"http://www.wiris.com/XML/csymbol\">repeat</csymbol><mtable><mtr><mtd><mi>aa</mi><mo>=</mo><mi>random</mi><mfenced close=\"}\" open=\"{\"><mtable align=\"center\"><mtr><mtd><mn>2</mn><mo>,</mo><mn>3</mn><mo>,</mo><mn>5</mn><mo>,</mo><mn>7</mn></mtd></mtr></mtable></mfenced></mtd></mtr><mtr><mtd><mi>powA</mi><mo>=</mo><mi>random</mi><mfenced><mrow><mo>-</mo><mn>9</mn><mo>.</mo><mo>.</mo><mo>-</mo><mn>2</mn></mrow></mfenced></mtd></mtr><mtr><mtd><mi>ans</mi><mo>=</mo><msup><mi>aa</mi><mi>powA</mi></msup></mtd></mtr></mtable><mrow><mi>den</mi><mfenced><mi>ans</mi></mfenced><mo>&lt;</mo><mn>1000</mn></mrow></apply></math></input></command><command><input><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mi>exA</mi><mo>=</mo><mi>string_substitution</mi><mfenced><mrow><mo>&quot;</mo><msup><mfenced><mrow><mo>#</mo><mn>1</mn></mrow></mfenced><mrow><mo>#</mo><mn>2</mn></mrow></msup><mo>&quot;</mo><mo>,</mo><mi>aa</mi><mo>,</mo><mi>powA</mi></mrow></mfenced></math></input></command><command><input><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mi>rhsA</mi><mo>=</mo><mi>string_substitution</mi><mfenced><mrow><mo>&quot;</mo><msup><mfenced><mrow><mo>#</mo><mn>1</mn></mrow></mfenced><mrow><mo>#</mo><mn>2</mn></mrow></msup><mo>&quot;</mo><mo>,</mo><mn>1</mn><mo>/</mo><mi>aa</mi><mo>,</mo><mo>-</mo><mi>powA</mi></mrow></mfenced></math></input></command></group></library><group><command><input><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mi>exA</mi></math></input><output><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><msup><mfenced><mn>2</mn></mfenced><mrow><mo>-</mo><mn>5</mn></mrow></msup></math></output></command><command><input><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mi>rhsA</mi></math></input><output><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><msup><mfenced><mfrac><mn>1</mn><mn>2</mn></mfrac></mfenced><mn>5</mn></msup></math></output></command><command><input><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mi>ans</mi></math></input><output><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mfrac><mn>1</mn><mn>32</mn></mfrac></math></output></command></group><group><command><input><math xmlns=\"http://www.w3.org/1998/Math/MathML\"/></input></command></group></session>",
+	"placeHolders": [
+		{
+			"name": "#rhsA",
+			"type": "mathml",
+			"value": "<math><mrow><msup><mfenced><mrow><mfrac><mn>1</mn><mn>3</mn></mfrac></mrow></mfenced><mrow><mn>6</mn></mrow></msup></mrow></math>"
+		},
+		{
+			"name": "#exA",
+			"type": "mathml",
+			"value": "<math><mrow><msup><mfenced><mrow><mn>3</mn></mrow></mfenced><mrow><mo>-</mo><mn>6</mn></mrow></msup></mrow></math>"
+		},
+		{
+			"name": "#ans",
+			"type": "mathml",
+			"value": "<math><mrow><mfrac><mn>1</mn><mn>729</mn></mfrac></mrow></math>"
+		}
+	],
+	"hasDisplayVariable": true,
+	"correctAnswerDisplayVariable": "{\"#ans\":\"<disp_var></disp_var>\\n\"}",
+	"correctAnswers": [
+		{
+			"name": "#ans",
+			"type": "mathml",
+			"value": "<math><mrow><mfrac><mn>1</mn><mn>729</mn></mfrac></mrow></math>"
+		}
+	],
+	"userAnswers": [],
+	"assertionXml": "<assertions>\n  <assertion name=\"syntax_expression\" correctAnswer=\"0\" answer=\"0\">\n    <param name=\"itemseparators\">\\,,\\n,\\s</param>\n    <param name=\"decimalseparators\">.</param>\n    <param name=\"digitgroupseparators\"></param>\n    <param name=\"groupoperators\">(,[,{</param>\n  </assertion>\n  <assertion name=\"equivalent_symbolic\" correctAnswer=\"0\" answer=\"0\"/>\n</assertions>\n",
+	"dontShuffle": false,
+	"implicitProduct": true,
+	"precision": "5",
+	"optionXml": "<options>\n  <option name=\"tolerance\" type=\"text\">10^(-12)</option>\n  <option name=\"relative_tolerance\" type=\"text\">true</option>\n  <option name=\"precision\" type=\"text\">5</option>\n  <option name=\"times_operator\" type=\"text\">×</option>\n  <option name=\"implicit_times_operator\" type=\"text\">true</option>\n  <option name=\"imaginary_unit\" type=\"text\">i</option>\n  <option name=\"digit_group_separator\" type=\"text\"></option>\n  <option name=\"decimal_separator\" type=\"text\">.</option>\n</options>\n",
+	"name": "PQ00006789",
+	"editorConfig": {
+		"#ans": {
+			"showEditor": true,
+			"toolbar": [
+				"Fraction"
+			]
+		}
+	}
+}

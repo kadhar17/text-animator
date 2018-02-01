@@ -1,13 +1,21 @@
 @font-face {
-	font-family: "Consolas";
-	src: url("../fonts/Consolas.ttf");
+	font-family: "Roboto-reg";
+	font-style: normal;
+	src: url("../fonts/Roboto-Regular.ttf");
 }
 
-body {font-family: "Consolas" !important;
-margin:0;
-font-size: 14px;
-line-height: 1.0 !important;}
+@font-face {
+	font-family: "Roboto-med";
+	src: url("../fonts/Roboto-Medium.ttf");
+}
 
+html {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    color: rgba(0,0,0,0.87);
+    overflow: auto;
+}
 
 .navbart {
 	overflow: hidden;
@@ -28,6 +36,18 @@ line-height: 1.0 !important;}
 
 .text-part{
 	margin-top: 60px;
-  overflow-y: scroll;
 }
 
+.hm-question{
+	margin-bottom: 4px;
+	padding: 10px 0;
+}
+
+/*.m-b-10 {
+	margin-bottom: 10px;
+}*/
+.md-title {
+	font-size: 20px;
+	font-weight: 500;
+	letter-spacing: .005em;
+}
