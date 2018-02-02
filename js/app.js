@@ -14,6 +14,7 @@ app.controller("mycontroller",function($scope,$http,$rootScope, $interval,$timeo
  $scope.solution=2;
  $scope.count=0;
  $scope.cnt=3;
+ $scope.scrollreached=false;
 
  $http.get("jsondata.json").then(function(response){
 
@@ -35,71 +36,70 @@ app.controller("mycontroller",function($scope,$http,$rootScope, $interval,$timeo
   console.log(myObj+" : "+key)
   $scope.mydata=myObj;  
   $rootScope.appId=response.data.appId[0];
- // console.log(response.data);
- $scope.loadFn(key)
-
-
+  $scope.loadFn(key)
 })
 
 
  $scope.loadFn=function(val){
   console.log("loadFn "+val)
-  $scope.listid=0;
-  $scope.interval=$interval(callAtInterval, 1000,val);
+  //$scope.listid=0;
+ // $scope.interval=$interval(callAtInterval, 1000,val);
+}
+
+$scope.onclicktop=function(){
+  $("html, body").animate({ scrollTop: 0 }, 600);
+  //$("#mydata1").scrollTop()
 }
 
 
 function callAtInterval(val){
-  if($scope.listid==val){
+  $scope.listid=1;
+  $("#mydata"+$scope.listid).fadeIn("slow");
+  console.log("callAtInterval "+$scope.listid+" "+val);
+  if($scope.listid==(val-1)){
     console.log("clear "+val);
     clearInterval($scope.interval)
-    /*clearInterval($scope.my_time);*/
-    $("#test").css("height",$(document).outerHeight()+"px");
   }
-  else{
-    console.log("callAtInterval "+$scope.listid+" "+val);
-    $scope.listid+=1;
-  }
+  
 }
+
+setTimeout(function(){
+ console.log("test"+$(document).innerHeight())
+ $("#test").css("height",$(document).outerHeight()+"px")
+},3000)
 
 $scope.scrollpos=0;
-var testId;
-/*var testId=$interval(pageScroll, 500);*/
-/*$("#test").mouseover(function() {
-  console.log("clearInterval")
- 
-  clearInterval(testId);
-   $scope.scrollpos = window.scrollY;
-}).mouseout(function() {
-  pageScroll();
-});
-*/
+
+var testId=$interval(pageScroll, 200);
+var allow=true;
+var showcnt=1;
+
 
 function pageScroll() {  
-  console.log("pagescroll")
-  // var objDiv = document.body;
-  // objDiv.scrollTop = objDiv.scrollTop + 1;  
-  window.scrollTo($scope.scrollpos,$scope.scrollpos+1);
+  if(allow){
 
-$scope.scrollpos+=1;
-  // $('p:nth-of-type(1)').html('scrollTop : '+ objDiv.scrollTop);
-  // $('p:nth-of-type(2)').html('scrollHeight : ' + objDiv.scrollHeight);
-  // if (objDiv.scrollTop == (objDiv.scrollHeight - 100)) {
-  //   objDiv.scrollTop = 0;
-  // }
+    window.scrollTo($scope.scrollpos,$scope.scrollpos+1);
+    $scope.scrollpos+=5;
+
+    $(window).fadeIn("slow", 0.2);
+
+    if($scope.scrollpos>($(document).innerHeight()-1)){
+      clearInterval(testId)
+       $scope.scrollreached=true;
+     //  console.log("scrollreached "+$scope.scrollreached)
+    }else{
+      //console.log("scrollreached "+$scope)
+    }
+  }
 }
 
-setTimeout(function()
-    {
-      $("#test").hover(function(){
-        //$(this).css("background-color", "yellow");
-        clearInterval(testId)
-      }, function(){
-        //$(this).css("background-color", "pink");
-        testId=$interval(pageScroll, 500);
-      });
-  //  $("#test").css("height",$(document).outerHeight()+"px");
-},1000)
+
+$("#test").mouseover(function(){
+ allow=false;
+}).mouseout(function(){
+ allow=true;
+});
+
 
 
 });
